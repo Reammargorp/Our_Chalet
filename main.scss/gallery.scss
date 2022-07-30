@@ -1,0 +1,113 @@
+@use "../sass/pages/all.scss" as * ;
+// impot global rules file to main file
+@use "../sass/layout/global-rules";
+// impot pages file to main file
+@use "../sass/pages/contactus";
+// Import Variables
+@use "../sass/variables/color" as *;
+// Import mixins
+@use "../sass/helpers/mixins" as *;
+// Import Functions
+@use "../sass/functions/functions" as *;
+/* Start Gallery */
+.gallery {
+
+    background:$section-color-two;
+    position: relative;
+    &.zoom {
+        background-color: black;
+    }
+    .container {
+        width: 100%;
+        .link {
+            padding: 2rem 0;
+            ul {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+                gap: 5rem;
+                li {
+                    cursor:pointer;
+                    padding-bottom: 0.5rem;
+                    font-size: $font-size-alt;
+                    color: black;
+                    border-bottom: 1px solid black;
+                    transition: $transition;
+                    &.active {
+                        color: $hover-color;
+                        border-color: $hover-color;
+                    }
+                    &:hover {
+                        color: $hover-color;
+                        border-bottom: 1px solid $hover-color;
+                    }
+                }
+            }
+        }
+        .row {
+            position: relative;
+            left: -200%;
+            display: none;
+            transition: $transition;
+            img {
+                max-width: 100%;
+                width:100%;
+                max-height: 50vh !important;
+                height: 50vh !important;
+            }
+            &.active {
+                @include flexCenter;
+                right: 0;
+                left: 0;
+            }
+            &.flex {
+                display: flex;
+            }
+            .content-box,
+            video {
+                @include boxShadow;
+                max-width: 100%;
+                width: 100%;
+                border-radius: 10px;
+                cursor: pointer;
+                margin-top: 3rem;
+                transition: $transition;
+                &.zoom {
+                    position: absolute;
+                    top: 24%;
+                    left: 20%;
+                    transform: translate(-50%, -50%);
+                    margin: auto;
+                    max-width: 60%;
+                    z-index: 1;
+                    transform: scale(1.5);
+                    @include breakpoints(small) {
+                        top: 40%;
+                    }
+                }
+                &:hover {
+                    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+                }
+            }
+        }
+        .zoom-box {
+            &.zoom {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+            }
+        }
+        video {
+            @include flexCenter;
+            margin: auto;
+            max-width: 30% !important;
+            width: 30% !important;
+            @include breakpoints(mobile) {
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+        }
+    }
+}
+/* End Gallery */

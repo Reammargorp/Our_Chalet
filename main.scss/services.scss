@@ -1,0 +1,30 @@
+@use "../sass/pages/all.scss" as * ;
+// impot global rules file to main file
+@use "../sass/layout/global-rules";
+// impot pages file to main file
+@use "../sass/pages/contactus";
+// Import Variables
+@use "../sass/variables/color" as *;
+// Import mixins
+@use "../sass/helpers/mixins" as *;
+// Import Functions
+@use "../sass/functions/functions" as *;
+/* Start services */
+.services {
+    background-color: $section-color-two;
+    .container {
+        .row {
+            .describe {
+                transition: $transition;
+                color: black;
+                padding-top: 1rem;;
+                cursor: pointer;
+                    &:hover {
+                        color: $hover-color;
+                    }
+                }
+
+        }
+    }
+}
+/* End services */
